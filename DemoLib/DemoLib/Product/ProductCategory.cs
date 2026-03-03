@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoLib
+namespace DemoLib.Product
 {
-    public class Class1
+    enum ProductCategory
     {
+        Мужская,
+        Женская
     }
 }
