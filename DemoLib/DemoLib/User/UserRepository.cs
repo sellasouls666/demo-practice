@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoLib.Product
+namespace DemoLib.User
 {
-    enum ProductCategory
+    class UserRepository
     {
-        Мужская,
-        Женская
+
     }
 }
