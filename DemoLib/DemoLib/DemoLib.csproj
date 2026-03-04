@@ -122,6 +122,7 @@
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserRepository.cs" />
     <Compile Include="User\UserService.cs" />
+    <Compile Include="View\IProductCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

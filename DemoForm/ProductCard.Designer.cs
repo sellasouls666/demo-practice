@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.manufacturerTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.supplierTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -139,16 +139,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Поставщик:";
             // 
-            // textBox1
+            // supplierTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Chartreuse;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(545, 180);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(281, 19);
-            this.textBox1.TabIndex = 9;
+            this.supplierTextBox.BackColor = System.Drawing.Color.Chartreuse;
+            this.supplierTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.supplierTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplierTextBox.Location = new System.Drawing.Point(545, 180);
+            this.supplierTextBox.Name = "supplierTextBox";
+            this.supplierTextBox.ReadOnly = true;
+            this.supplierTextBox.Size = new System.Drawing.Size(281, 19);
+            this.supplierTextBox.TabIndex = 9;
             // 
             // label5
             // 
@@ -232,7 +232,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.supplierTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.manufacturerTextBox);
             this.Controls.Add(this.label3);
@@ -261,7 +261,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox manufacturerTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox supplierTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label label6;
