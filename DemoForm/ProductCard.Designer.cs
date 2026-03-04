@@ -98,6 +98,8 @@
             // 
             // descriptionTextBox
             // 
+            this.descriptionTextBox.BackColor = System.Drawing.Color.Chartreuse;
+            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.descriptionTextBox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.descriptionTextBox.Location = new System.Drawing.Point(545, 43);
             this.descriptionTextBox.Name = "descriptionTextBox";
@@ -118,11 +120,13 @@
             // 
             // manufacturerTextBox
             // 
+            this.manufacturerTextBox.BackColor = System.Drawing.Color.Chartreuse;
+            this.manufacturerTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.manufacturerTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.manufacturerTextBox.Location = new System.Drawing.Point(545, 137);
             this.manufacturerTextBox.Name = "manufacturerTextBox";
             this.manufacturerTextBox.ReadOnly = true;
-            this.manufacturerTextBox.Size = new System.Drawing.Size(281, 26);
+            this.manufacturerTextBox.Size = new System.Drawing.Size(281, 19);
             this.manufacturerTextBox.TabIndex = 7;
             // 
             // label4
@@ -137,11 +141,13 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Chartreuse;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(545, 180);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(281, 26);
+            this.textBox1.Size = new System.Drawing.Size(281, 19);
             this.textBox1.TabIndex = 9;
             // 
             // label5
@@ -218,6 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Chartreuse;
             this.Controls.Add(this.discountLabel);
             this.Controls.Add(this.countLabel);
             this.Controls.Add(this.label7);
