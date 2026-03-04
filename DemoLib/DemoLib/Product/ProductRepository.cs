@@ -1,15 +1,15 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace DemoLib.Product
 {
-    class ProductRepository
+    public class ProductRepository : IProductRepository
     {
-        private const string connStr = "server=st50-5;user=st50-5;database=shoes_store_EG;password=505;port=5432";
+        private const string connStr = "Host=192.168.1.48;Port=5432;Database=shoes_store_EG;Username=st50-5;Password=505;";
 
         public List<Product> GetAllProducts()
         {
@@ -17,20 +17,28 @@ namespace DemoLib.Product
 
             try
             {
-                using (var connection = new MySqlConnection(connStr))
+                using (var connection = new NpgsqlConnection(connStr))
                 {
                     connection.Open();
 
-                    const string sql = "SELECT 'articul', 'name', 'unit', 'price', 'supplier', 'manufacturer', 'category', 'discount', 'count'," +
-                        " 'description', 'pic' FROM 'products'";
-                    using (var command = new MySqlCommand(sql, connection))
+                    const string sql = "SELECT articul, name, unit, price, supplier, manufacturer, category, discount, count," +
+                        " description, pic FROM products";
+                    using (var command = new NpgsqlCommand(sql, connection))
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var p = new Product(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4),
-                                reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), 
-                                reader.GetString(10));
+                            var p = new Product(reader.GetString(0), 
+                                reader.GetString(1), 
+                                reader.GetString(2),
+                                reader.GetDecimal(3), 
+                                reader.GetString(4),
+                                reader.GetString(5),
+                                reader.GetString(6), 
+                                reader.GetInt32(7),
+                                reader.GetInt32(8),
+                                reader.IsDBNull(9) ? "" : reader.GetString(9), 
+                                reader.IsDBNull(10) ? "" : reader.GetString(10));
                             products.Add(p);
                         }
                     }

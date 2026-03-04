@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DemoLib.User
 {
-    public class UserRepository : IUserRepository
+    public class UserService
     {
-        private const string connStr = "server=st50-5;user=st50-5;database=shoes_store_EG;password=505;port=5432";
-
+        private IUserRepository repository_;
         public List<User> GetAllUsers()
         {
-            return null;
+            return repository_.GetAllUsers();
         }
     }
 }

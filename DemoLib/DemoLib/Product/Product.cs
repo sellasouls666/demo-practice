@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoLib.Product
 {
-    class Product
+    public class Product
     {
         public string articul_ { get; set; }
         public string name_ { get; set; }

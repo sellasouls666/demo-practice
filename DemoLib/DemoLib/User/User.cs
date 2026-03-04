@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoLib.User
 {
-    class User
+    public class User
     {
         public string role_ { get; set; }
         public string fio_ { get; set; }
