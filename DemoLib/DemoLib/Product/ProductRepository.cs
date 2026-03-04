@@ -51,5 +51,25 @@ namespace DemoLib.Product
                 throw new Exception("Ошибка при чтении товаров", ex);
             }
         }
+
+        public int GetProductsCount()
+        {
+            try
+            {
+                using (var connection = new NpgsqlConnection(connStr))
+                {
+                    connection.Open();
+
+                    const string sql = "SELECT COUNT(articul) FROM products";
+                    NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+                    int result = Convert.ToInt32(command.ExecuteScalar().ToString());
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

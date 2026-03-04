@@ -26,6 +26,7 @@ namespace DemoForm
             try
             {
                 products_ = service_.GetAllProducts();
+                ShowProducts(products_);
             }
             catch (Exception ex)
             {
@@ -34,6 +35,13 @@ namespace DemoForm
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
+        }
+
+        private void ShowProducts(List<Product> products)
+        {
+            ProductsListBox.DataSource = null;
+            ProductsListBox.DataSource = products;
+            ProductsListBox.DisplayMember = "articul_";
         }
     }
 }
