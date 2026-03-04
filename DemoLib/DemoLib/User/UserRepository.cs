@@ -9,6 +9,11 @@ namespace DemoLib.User
 {
     class UserRepository
     {
+        private const string connStr = "server=st50-5;user=st50-5;database=shoes_store_EG;password=505;port=5432";
 
+        public List<User> GetAllUsers()
+        {
+            return null;
+        }
     }
 }
