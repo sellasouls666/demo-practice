@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ProductsListBox = new System.Windows.Forms.ListBox();
+            this.cardProduct = new DemoForm.ProductCard();
             this.SuspendLayout();
             // 
             // ProductsListBox
@@ -37,14 +38,24 @@
             this.ProductsListBox.FormattingEnabled = true;
             this.ProductsListBox.Location = new System.Drawing.Point(0, 0);
             this.ProductsListBox.Name = "ProductsListBox";
-            this.ProductsListBox.Size = new System.Drawing.Size(60, 450);
+            this.ProductsListBox.Size = new System.Drawing.Size(112, 352);
             this.ProductsListBox.TabIndex = 0;
+            this.ProductsListBox.SelectedIndexChanged += new System.EventHandler(this.ProductsListBox_SelectedIndexChanged);
+            // 
+            // cardProduct
+            // 
+            this.cardProduct.BackColor = System.Drawing.Color.Chartreuse;
+            this.cardProduct.Location = new System.Drawing.Point(118, 11);
+            this.cardProduct.Name = "cardProduct";
+            this.cardProduct.Size = new System.Drawing.Size(1000, 329);
+            this.cardProduct.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1131, 352);
+            this.Controls.Add(this.cardProduct);
             this.Controls.Add(this.ProductsListBox);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -55,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox ProductsListBox;
+        private ProductCard cardProduct;
     }
 }
 

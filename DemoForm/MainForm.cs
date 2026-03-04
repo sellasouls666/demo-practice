@@ -43,5 +43,22 @@ namespace DemoForm
             ProductsListBox.DataSource = products;
             ProductsListBox.DisplayMember = "articul_";
         }
+
+        private void ProductsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = ProductsListBox.SelectedItem;
+            if (item == null)
+            {
+                return;
+            }
+
+            var product = item as Product;
+            if (product == null)
+            {
+                return;
+            }
+
+            cardProduct.ShowProductInfo(product);
+        }
     }
 }

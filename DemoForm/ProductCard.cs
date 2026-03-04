@@ -32,7 +32,15 @@ namespace DemoForm
             priceLabel.Text = product.price_.ToString();
             unitLabel.Text = product.unit_;
             countLabel.Text = product.count_.ToString();
-            picBox.Load(product.pic_);
+            discountLabel.Text = product.discount_.ToString();
+            if (!string.IsNullOrEmpty(product.pic_))
+            {
+                picBox.Load(product.pic_);
+            }
+            else
+            {
+                picBox.Load("picture.png");
+            }
         }
     }
 }
