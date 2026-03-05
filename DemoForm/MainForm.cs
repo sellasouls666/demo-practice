@@ -62,5 +62,17 @@ namespace DemoForm
 
             cardProduct.ShowProductInfo(product);
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (currentUser_ != null)
+            {
+                userFioLabel.Text = currentUser_.fio_;
+            }
+            if (currentUser_ == null)
+            {
+                userFioLabel.Text = "Гость";
+            }
+        }
     }
 }
