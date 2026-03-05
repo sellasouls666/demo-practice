@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,14 +22,9 @@ namespace DemoForm
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            string login = loginTextBox.Text;
+            string login = loginBox.Text;
             string password = passwordTextBox.Text;
 
-            if (String.IsNullOrWhiteSpace(login))
-            {
-                MessageBox.Show("Пожалуйста, введите логин");
-                return;
-            }
             if (String.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Пожалуйста, введите пароль");
@@ -37,22 +33,22 @@ namespace DemoForm
 
             User user = service_.GetUserByLogin(login);
 
-            if (user == null)
-            {
-                MessageBox.Show("Пользователь с указанным логином не найден");
-                return;
-            }
-
             if (user.password_ == password)
             {
                 MainForm mainForm = new MainForm(user);
                 mainForm.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Пароль неверен");
                 return;
             }
+        }
+
+        private void AuthorizeForm_Load(object sender, EventArgs e)
+        {
+            loginBox.DataSource = service_.GetUsersLogins();
         }
     }
 }

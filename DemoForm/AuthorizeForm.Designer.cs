@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.enterButton = new System.Windows.Forms.Button();
             this.guestButton = new System.Windows.Forms.Button();
+            this.loginBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,14 +55,6 @@
             this.label2.Size = new System.Drawing.Size(61, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Пароль:";
-            // 
-            // loginTextBox
-            // 
-            this.loginTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginTextBox.Location = new System.Drawing.Point(123, 20);
-            this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(154, 26);
-            this.loginTextBox.TabIndex = 2;
             // 
             // passwordTextBox
             // 
@@ -95,19 +87,30 @@
             this.guestButton.Text = "Войти как гость";
             this.guestButton.UseVisualStyleBackColor = false;
             // 
+            // loginBox
+            // 
+            this.loginBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.loginBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginBox.FormattingEnabled = true;
+            this.loginBox.Location = new System.Drawing.Point(123, 20);
+            this.loginBox.Name = "loginBox";
+            this.loginBox.Size = new System.Drawing.Size(154, 27);
+            this.loginBox.TabIndex = 6;
+            // 
             // AuthorizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 202);
+            this.Controls.Add(this.loginBox);
             this.Controls.Add(this.guestButton);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AuthorizeForm";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.AuthorizeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,9 +120,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.Button guestButton;
+        private System.Windows.Forms.ComboBox loginBox;
     }
 }
