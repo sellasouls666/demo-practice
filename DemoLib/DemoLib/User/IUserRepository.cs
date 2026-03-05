@@ -9,5 +9,6 @@ namespace DemoLib.User
     public interface IUserRepository
     {
         User GetUserByLogin(string login);
+        List<User> GetAllUsers();
     }
 }

@@ -13,5 +13,18 @@ namespace DemoLib.User
         {
             return repository_.GetUserByLogin(login);
         }
+
+        public List<string> GetUsersLogins()
+        {
+            List<User> allUsers = repository_.GetAllUsers();
+
+            List<string> logins = new List<string>();
+            foreach (User user in allUsers)
+            {
+                logins.Add(user.login_);
+            }
+
+            return logins;
+        }
     }
 }

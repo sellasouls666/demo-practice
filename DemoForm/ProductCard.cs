@@ -44,7 +44,7 @@ namespace DemoForm
 
             if (product.discount_ > 15)
             {
-                this.BackColor = Color.FromName("#2E8B57");
+                this.BackColor = ColorTranslator.FromHtml("#2E8B57");
             }
             else
             {

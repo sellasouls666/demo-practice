@@ -52,5 +52,41 @@ namespace DemoLib.User
                 throw new Exception($"Ошибка при поиске пользователя с логином '{login}'.", ex);
             }
         }
+
+        public List<User> GetAllUsers()
+        {
+            var users = new List<User>();
+
+            try
+            {
+                using (var connection = new NpgsqlConnection(connStr))
+                {
+                    connection.Open();
+
+                    const string sql = "SELECT role, fio, login, password FROM users";
+                    using (var command = new NpgsqlCommand(sql, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var u = new User
+                                (
+                                    reader.GetString(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetString(3)
+                                );
+                            users.Add(u);
+                        }
+                    }
+                }
+
+                return users;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ошибка при чтении списка пользователей из БД.", ex);
+            }
+        }
     }
 }

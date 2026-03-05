@@ -16,8 +16,10 @@ namespace DemoForm
     {
         private ProductService service_;
         private List<Product> products_ = new List<Product>();
-        public MainForm()
+        private User currentUser_ = null;
+        public MainForm(User user)
         {
+            currentUser_ = user;
             InitializeComponent();
 
             var repository = new ProductRepository();

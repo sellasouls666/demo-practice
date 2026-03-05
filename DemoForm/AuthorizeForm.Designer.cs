@@ -82,6 +82,7 @@
             this.enterButton.TabIndex = 4;
             this.enterButton.Text = "Войти";
             this.enterButton.UseVisualStyleBackColor = false;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // guestButton
             // 
