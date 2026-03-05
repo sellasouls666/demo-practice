@@ -74,5 +74,39 @@ namespace DemoForm
                 userFioLabel.Text = "Гость";
             }
         }
+
+        private bool IsNotSettedSearch()
+        {
+            return string.IsNullOrEmpty(searchTextBox.Text);
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (IsNotSettedSearch())
+            {
+                ShowProducts(products_);
+                return;
+            }
+
+            string searchingText = searchTextBox.Text; // условие поиска
+
+            List<Product> resultProducts = new List<Product>();
+            foreach (Product product in products_)
+            {
+                if (string.IsNullOrEmpty(searchingText)
+                        || product.articul_.ToLower().Contains(searchingText.ToLower())
+                        || product.name_.ToLower().Contains(searchingText.ToLower())
+                        || product.unit_.ToLower().Contains(searchingText.ToLower())
+                        || product.supplier_.ToLower().Contains(searchingText.ToLower())
+                        || product.manufacturer_.ToLower().Contains(searchingText.ToLower())
+                        || product.category_.ToLower().Contains(searchingText.ToLower())
+                        || product.description_.ToLower().Contains(searchingText.ToLower()))
+                {
+                    resultProducts.Add(product);
+                }
+            }
+
+            ShowProducts(resultProducts);
+        }
     }
 }
