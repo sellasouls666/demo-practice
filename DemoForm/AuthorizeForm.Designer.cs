@@ -86,6 +86,7 @@
             this.guestButton.TabIndex = 5;
             this.guestButton.Text = "Войти как гость";
             this.guestButton.UseVisualStyleBackColor = false;
+            this.guestButton.Click += new System.EventHandler(this.guestButton_Click);
             // 
             // loginBox
             // 

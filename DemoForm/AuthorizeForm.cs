@@ -50,5 +50,12 @@ namespace DemoForm
         {
             loginBox.DataSource = service_.GetUsersLogins();
         }
+
+        private void guestButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm(null);
+            mainForm.Show();
+            this.Hide();
+        }
     }
 }
