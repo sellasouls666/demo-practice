@@ -8,6 +8,6 @@ namespace DemoLib.User
 {
     public interface IUserRepository
     {
-        List<User> GetAllUsers();
+        User GetUserByLogin(string login);
     }
 }
