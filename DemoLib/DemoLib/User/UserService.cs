@@ -9,9 +9,9 @@ namespace DemoLib.User
     public class UserService
     {
         private IUserRepository repository_;
-        public List<User> GetAllUsers()
+        public User GetUserByLogin(string login)
         {
-            return repository_.GetAllUsers();
+            return repository_.GetUserByLogin(login);
         }
     }
 }
