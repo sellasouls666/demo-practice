@@ -68,6 +68,7 @@ namespace DemoForm
             CheckRole();
 
             supplierComboBox.DataSource = service_.GetAllSuppliers();
+            logoPicBox.Load("icon.png");
         }
 
         private bool IsNotSettedSearchAndFilter()
@@ -156,6 +157,8 @@ namespace DemoForm
             {
                 searchTextBox.Enabled = false;
                 supplierComboBox.Enabled = false;
+                sortIncButton.Enabled = false;
+                sortDecButton.Enabled = false;
             }
         }
 
