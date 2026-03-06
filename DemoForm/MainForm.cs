@@ -158,5 +158,19 @@ namespace DemoForm
                 supplierComboBox.Enabled = false;
             }
         }
+
+        private void sortIncButton_Click(object sender, EventArgs e)
+        {
+            products_ = products_.OrderBy(p => p.count_).ToList();
+            List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
+            ShowProducts(resultProducts);
+        }
+
+        private void sortDecButton_Click(object sender, EventArgs e)
+        {
+            products_ = products_.OrderByDescending(p => p.count_).ToList();
+            List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
+            ShowProducts(resultProducts);
+        }
     }
 }
