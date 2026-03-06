@@ -32,5 +32,10 @@ namespace DemoLib.Product
             }
             return allSuppliers;
         }
+
+        public void AddProduct(Product product)
+        {
+            repository_.AddProduct(product); 
+        }
     }
 }
