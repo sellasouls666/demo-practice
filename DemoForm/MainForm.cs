@@ -65,6 +65,85 @@ namespace DemoForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            CheckRole();
+
+            supplierComboBox.DataSource = service_.GetAllSuppliers();
+        }
+
+        private bool IsNotSettedSearchAndFilter()
+        {
+            return string.IsNullOrEmpty(searchTextBox.Text)
+                && supplierComboBox.Text == "Все поставщики";
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (IsNotSettedSearchAndFilter())
+            {
+                ShowProducts(products_);
+                return;
+            }
+
+            List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
+            ShowProducts(resultProducts);
+        }
+
+        private List<Product> SearchAndFilter(string searchingText)
+        {
+            List<Product> resultProducts = new List<Product>();
+
+            foreach (Product product in products_)
+            {
+                // Проверяем, соответствует ли товар критериям поиска
+                bool matchesSearch = string.IsNullOrEmpty(searchingText) ||
+                                    product.articul_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.name_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.unit_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.supplier_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.manufacturer_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.category_.ToLower().Contains(searchingText.ToLower()) ||
+                                    product.description_.ToLower().Contains(searchingText.ToLower());
+
+                // Проверяем, соответствует ли товар фильтру по поставщику
+                bool matchesSupplier = supplierComboBox.Text == "Все поставщики" ||
+                                      product.supplier_ == supplierComboBox.Text;
+
+                // Товар добавляется, если выполняются оба условия
+                if (matchesSearch && matchesSupplier)
+                {
+                    resultProducts.Add(product);
+                }
+            }
+
+            return resultProducts;
+        }
+
+        private void supplierComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsNotSettedSearchAndFilter())
+            {
+                ShowProducts(products_);
+                return;
+            }
+
+            List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
+            ShowProducts(resultProducts);
+        }
+
+        private void supplierComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (IsNotSettedSearchAndFilter())
+            {
+                ShowProducts(products_);
+                return;
+            }
+
+            List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
+            ShowProducts(resultProducts);
+        }
+
+        private void CheckRole()
+        {
             if (currentUser_ != null)
             {
                 userFioLabel.Text = currentUser_.fio_;
@@ -73,40 +152,11 @@ namespace DemoForm
             {
                 userFioLabel.Text = "Гость";
             }
-        }
-
-        private bool IsNotSettedSearch()
-        {
-            return string.IsNullOrEmpty(searchTextBox.Text);
-        }
-
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (IsNotSettedSearch())
+            if (currentUser_ == null || currentUser_.role_ == "Авторизированный клиент")
             {
-                ShowProducts(products_);
-                return;
+                searchTextBox.Enabled = false;
+                supplierComboBox.Enabled = false;
             }
-
-            string searchingText = searchTextBox.Text; // условие поиска
-
-            List<Product> resultProducts = new List<Product>();
-            foreach (Product product in products_)
-            {
-                if (string.IsNullOrEmpty(searchingText)
-                        || product.articul_.ToLower().Contains(searchingText.ToLower())
-                        || product.name_.ToLower().Contains(searchingText.ToLower())
-                        || product.unit_.ToLower().Contains(searchingText.ToLower())
-                        || product.supplier_.ToLower().Contains(searchingText.ToLower())
-                        || product.manufacturer_.ToLower().Contains(searchingText.ToLower())
-                        || product.category_.ToLower().Contains(searchingText.ToLower())
-                        || product.description_.ToLower().Contains(searchingText.ToLower()))
-                {
-                    resultProducts.Add(product);
-                }
-            }
-
-            ShowProducts(resultProducts);
         }
     }
 }

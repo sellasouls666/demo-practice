@@ -30,9 +30,11 @@
         {
             this.ProductsListBox = new System.Windows.Forms.ListBox();
             this.userFioLabel = new System.Windows.Forms.Label();
-            this.cardProduct = new DemoForm.ProductCard();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.supplierComboBox = new System.Windows.Forms.ComboBox();
+            this.cardProduct = new DemoForm.ProductCard();
             this.SuspendLayout();
             // 
             // ProductsListBox
@@ -58,14 +60,6 @@
             this.userFioLabel.TabIndex = 2;
             this.userFioLabel.Text = "label1";
             // 
-            // cardProduct
-            // 
-            this.cardProduct.BackColor = System.Drawing.Color.Chartreuse;
-            this.cardProduct.Location = new System.Drawing.Point(118, 32);
-            this.cardProduct.Name = "cardProduct";
-            this.cardProduct.Size = new System.Drawing.Size(1000, 329);
-            this.cardProduct.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -86,11 +80,43 @@
             this.searchTextBox.TabIndex = 4;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(321, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Выберите поставщика:";
+            // 
+            // supplierComboBox
+            // 
+            this.supplierComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.supplierComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplierComboBox.FormattingEnabled = true;
+            this.supplierComboBox.Location = new System.Drawing.Point(490, -1);
+            this.supplierComboBox.Name = "supplierComboBox";
+            this.supplierComboBox.Size = new System.Drawing.Size(149, 27);
+            this.supplierComboBox.TabIndex = 6;
+            this.supplierComboBox.SelectedIndexChanged += new System.EventHandler(this.supplierComboBox_SelectedIndexChanged);
+            this.supplierComboBox.TextChanged += new System.EventHandler(this.supplierComboBox_TextChanged);
+            // 
+            // cardProduct
+            // 
+            this.cardProduct.BackColor = System.Drawing.Color.Chartreuse;
+            this.cardProduct.Location = new System.Drawing.Point(118, 32);
+            this.cardProduct.Name = "cardProduct";
+            this.cardProduct.Size = new System.Drawing.Size(1000, 329);
+            this.cardProduct.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 373);
+            this.Controls.Add(this.supplierComboBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.userFioLabel);
@@ -111,6 +137,8 @@
         private System.Windows.Forms.Label userFioLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox supplierComboBox;
     }
 }
 

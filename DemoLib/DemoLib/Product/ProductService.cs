@@ -17,5 +17,20 @@ namespace DemoLib.Product
         {
             return repository_.GetAllProducts();
         }
+
+        public List<string> GetAllSuppliers()
+        {
+            List<string> allSuppliers = new List<string>();
+            allSuppliers.Add("Все поставщики");
+            List<Product> allProducts = repository_.GetAllProducts();
+            foreach (var product in allProducts)
+            {
+                if (!allSuppliers.Contains(product.supplier_)) //проверка, что поставщики в списке не повторяются
+                {
+                    allSuppliers.Add(product.supplier_);
+                }
+            }
+            return allSuppliers;
+        }
     }
 }
