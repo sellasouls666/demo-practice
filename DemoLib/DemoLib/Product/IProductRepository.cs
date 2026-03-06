@@ -9,5 +9,6 @@ namespace DemoLib.Product
     public interface IProductRepository
     {
         List<Product> GetAllProducts();
+        void AddProduct(Product product);
     }
 }

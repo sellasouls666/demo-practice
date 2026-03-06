@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,43 @@ namespace DemoLib.Product
                     return result;
                 }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AddProduct(Product product)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
+                {
+
+                    connection.Open();
+                    string addProductSql =
+                                "INSERT INTO products (articul, name, unit, price, supplier, manufacturer, category, discount, count," +
+                                " description, pic)"
+                                + " VALUES (@articul, @name, @unit, @price, @supplier, @manufacturer, @category, @discount, @count," +
+                                " @description, @pic)";
+                    NpgsqlCommand command = new NpgsqlCommand(addProductSql, connection);
+
+                    command.Parameters.AddWithValue("@articul", product.articul_);
+                    command.Parameters.AddWithValue("@name", product.name_);
+                    command.Parameters.AddWithValue("@unit", product.unit_);
+                    command.Parameters.AddWithValue("@price", product.price_);
+                    command.Parameters.AddWithValue("@supplier", product.supplier_);
+                    command.Parameters.AddWithValue("@manufacturer", product.manufacturer_);
+                    command.Parameters.AddWithValue("@category", product.category_);
+                    command.Parameters.AddWithValue("@discount", product.discount_);
+                    command.Parameters.AddWithValue("@count", product.count_);
+                    command.Parameters.AddWithValue("@description", product.description_);
+                    command.Parameters.AddWithValue("@pic", product.pic_);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
             catch (Exception ex)
             {
                 throw ex;
