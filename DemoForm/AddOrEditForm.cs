@@ -33,6 +33,54 @@ namespace DemoForm
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(articulTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Артикул' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                articulTextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Название' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                nameTextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(unitTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Единица измерения' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                unitTextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(supplierTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Поставщик' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                supplierTextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(manufacturerTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Производитель' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                manufacturerTextBox.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(descriptionTextBox.Text))
+            {
+                MessageBox.Show("Поле 'Описание' не может быть пустым!", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                descriptionTextBox.Focus();
+                return;
+            }
+
             if (type_ == 0)
             {
                 Product addProduct = new Product(
@@ -59,6 +107,7 @@ namespace DemoForm
             {
                 pictureBox.Load(selectedImagePath_);
                 this.Text = "Добавление товара";
+                categoryComboBox.Text = "Мужская обувь";
             }
         }
 
