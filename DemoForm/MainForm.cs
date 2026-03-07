@@ -161,6 +161,10 @@ namespace DemoForm
                 sortIncButton.Enabled = false;
                 sortDecButton.Enabled = false;
             }
+            if (currentUser_ == null || currentUser_.role_ == "Авторизированный клиент" || currentUser_.role_ == "Менеджер")
+            {
+                addButton.Enabled = false;
+            }    
         }
 
         private void sortIncButton_Click(object sender, EventArgs e)
