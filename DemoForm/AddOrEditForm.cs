@@ -41,6 +41,17 @@ namespace DemoForm
                 return;
             }
 
+            if (type_ == 0)
+            {
+                if (CheckArticul(articulTextBox.Text))
+                {
+                    MessageBox.Show("Уже существует товар с указанным артикулом", "Ошибка",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    articulTextBox.Focus();
+                    return;
+                }
+            }
+
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
                 MessageBox.Show("Поле 'Название' не может быть пустым!", "Ошибка",
@@ -114,6 +125,19 @@ namespace DemoForm
         public Product GetNewProduct()
         {
             return newProduct_;
+        }
+
+        public bool CheckArticul(string articul)
+        {
+            List<Product> products = service_.GetAllProducts();
+            foreach (Product product in products) 
+            { 
+                if (product.articul_ == articul)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
