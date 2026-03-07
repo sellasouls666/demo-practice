@@ -274,6 +274,7 @@
             this.addPicButton.TabIndex = 21;
             this.addPicButton.Text = "Загрузить изображение";
             this.addPicButton.UseVisualStyleBackColor = false;
+            this.addPicButton.Click += new System.EventHandler(this.addPicButton_Click);
             // 
             // okButton
             // 
