@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DemoLib.User;
 using DemoLib.Product;
+using System.Reflection;
 
 namespace DemoForm
 {
@@ -174,6 +175,31 @@ namespace DemoForm
             products_ = products_.OrderByDescending(p => p.count_).ToList();
             List<Product> resultProducts = SearchAndFilter(searchTextBox.Text);
             ShowProducts(resultProducts);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddOrEditForm addForm = new AddOrEditForm(service_, 0, null);
+            DialogResult result = addForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    service_.AddProduct(addForm.GetNewProduct());
+                    products_.Clear();
+                    products_ = service_.GetAllProducts();
+                    ShowProducts(products_);
+                    if (ProductsListBox.Items.Count > 0)
+                        ProductsListBox.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Ошибка добавления товара",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -38,6 +38,7 @@
             this.sortDecButton = new System.Windows.Forms.Button();
             this.cardProduct = new DemoForm.ProductCard();
             this.logoPicBox = new System.Windows.Forms.PictureBox();
+            this.addButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,24 +108,26 @@
             // 
             // sortIncButton
             // 
+            this.sortIncButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.sortIncButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sortIncButton.Location = new System.Drawing.Point(668, 9);
             this.sortIncButton.Name = "sortIncButton";
             this.sortIncButton.Size = new System.Drawing.Size(192, 45);
             this.sortIncButton.TabIndex = 7;
             this.sortIncButton.Text = "Отсортировать по возрастанию количества на складе";
-            this.sortIncButton.UseVisualStyleBackColor = true;
+            this.sortIncButton.UseVisualStyleBackColor = false;
             this.sortIncButton.Click += new System.EventHandler(this.sortIncButton_Click);
             // 
             // sortDecButton
             // 
+            this.sortDecButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.sortDecButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sortDecButton.Location = new System.Drawing.Point(882, 9);
             this.sortDecButton.Name = "sortDecButton";
             this.sortDecButton.Size = new System.Drawing.Size(192, 45);
             this.sortDecButton.TabIndex = 8;
             this.sortDecButton.Text = "Отсортировать по убыванию количества на складе";
-            this.sortDecButton.UseVisualStyleBackColor = true;
+            this.sortDecButton.UseVisualStyleBackColor = false;
             this.sortDecButton.Click += new System.EventHandler(this.sortDecButton_Click);
             // 
             // cardProduct
@@ -144,11 +147,24 @@
             this.logoPicBox.TabIndex = 9;
             this.logoPicBox.TabStop = false;
             // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.addButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButton.Location = new System.Drawing.Point(1133, 180);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(162, 36);
+            this.addButton.TabIndex = 10;
+            this.addButton.Text = "Добавить товар";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 386);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.logoPicBox);
             this.Controls.Add(this.sortDecButton);
             this.Controls.Add(this.sortIncButton);
@@ -180,6 +196,7 @@
         private System.Windows.Forms.Button sortIncButton;
         private System.Windows.Forms.Button sortDecButton;
         private System.Windows.Forms.PictureBox logoPicBox;
+        private System.Windows.Forms.Button addButton;
     }
 }
 

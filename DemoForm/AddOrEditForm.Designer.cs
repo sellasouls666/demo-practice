@@ -136,6 +136,11 @@
             this.priceNumeric.DecimalPlaces = 2;
             this.priceNumeric.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.priceNumeric.Location = new System.Drawing.Point(463, 144);
+            this.priceNumeric.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.priceNumeric.Name = "priceNumeric";
             this.priceNumeric.Size = new System.Drawing.Size(131, 26);
             this.priceNumeric.TabIndex = 8;
@@ -231,6 +236,11 @@
             // 
             this.countNumeric.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.countNumeric.Location = new System.Drawing.Point(816, 102);
+            this.countNumeric.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.countNumeric.Name = "countNumeric";
             this.countNumeric.Size = new System.Drawing.Size(131, 26);
             this.countNumeric.TabIndex = 18;
@@ -275,6 +285,7 @@
             this.okButton.TabIndex = 22;
             this.okButton.Text = "ОК";
             this.okButton.UseVisualStyleBackColor = false;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -286,6 +297,7 @@
             this.cancelButton.TabIndex = 23;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // AddOrEditForm
             // 
@@ -318,6 +330,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddOrEditForm";
             this.Text = "AddOrEditForm";
+            this.Load += new System.EventHandler(this.AddOrEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountNumeric)).EndInit();
