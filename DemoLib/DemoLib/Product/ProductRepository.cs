@@ -143,5 +143,27 @@ namespace DemoLib.Product
                 throw ex;
             }
         }
+
+        public void DeleteProduct(Product product)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection((string)(connStr)))
+                {
+                    connection.Open();
+                    string sql = "DELETE FROM products WHERE articul = @articul";
+                    NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+
+                    command.Parameters.AddWithValue("@articul", product.articul_);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

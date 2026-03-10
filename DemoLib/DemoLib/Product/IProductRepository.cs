@@ -11,5 +11,6 @@ namespace DemoLib.Product
         List<Product> GetAllProducts();
         void AddProduct(Product product);
         void EditProduct(Product product);
+        void DeleteProduct(Product product);
     }
 }

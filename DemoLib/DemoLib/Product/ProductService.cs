@@ -42,5 +42,10 @@ namespace DemoLib.Product
         {
             repository_.EditProduct(product);
         }
+
+        public void DeleteProduct(Product product)
+        {
+            repository_.DeleteProduct(product);
+        }
     }
 }
