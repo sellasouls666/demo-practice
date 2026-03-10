@@ -209,6 +209,10 @@ namespace DemoForm
 
         private void cardProduct_DoubleClick(object sender, EventArgs e)
         {
+            if (currentUser_ == null || currentUser_.role_ != "Администратор")
+            {
+                return;
+            }    
             var item = ProductsListBox.SelectedItem;
             if (item == null) return;
 
