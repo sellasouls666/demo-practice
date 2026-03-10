@@ -39,6 +39,7 @@
             this.logoPicBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
             this.cardProduct = new DemoForm.ProductCard();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,11 +161,24 @@
             this.cardProduct.TabIndex = 1;
             this.cardProduct.DoubleClick += new System.EventHandler(this.cardProduct_DoubleClick);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.deleteButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButton.Location = new System.Drawing.Point(1133, 222);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(162, 36);
+            this.deleteButton.TabIndex = 11;
+            this.deleteButton.Text = "Удалить товар";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 386);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.logoPicBox);
             this.Controls.Add(this.sortDecButton);
@@ -198,6 +212,7 @@
         private System.Windows.Forms.Button sortDecButton;
         private System.Windows.Forms.PictureBox logoPicBox;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

@@ -20,8 +20,7 @@ namespace DemoLib.Order
                 using (var connection = new NpgsqlConnection(connStr))
                 {
                     connection.Open();
-
-                    const string sql = "SELECT id, orderDate, delieveryDate, idPickup, fio, code, status, userLogin FROM orders";
+                    const string sql = "SELECT id, \"orderDate\", \"delieveryDate\", \"idPickup\", fio, code, status, \"userLogin\" FROM orders";
                     using (var command = new NpgsqlCommand(sql, connection))
                     using (var reader = command.ExecuteReader())
                     {
@@ -62,7 +61,7 @@ namespace DemoLib.Order
                 {
                     connection.Open();
 
-                    const string sql = "SELECT id, articul, quantity FROM orderProducts WHERE orderId = @orderId";
+                    const string sql = "SELECT id, articul, quantity FROM \"orderProducts\" WHERE \"orderId\" = @orderId";
                     using (var command = new NpgsqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@orderId", orderId);

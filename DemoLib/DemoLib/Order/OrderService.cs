@@ -14,5 +14,22 @@ namespace DemoLib.Order
         {
             repository_ = repository;
         }
+
+        public bool CheckArticul(DemoLib.Product.Product product)
+        {
+            List<Order> orders = new List<Order>();
+            orders = repository_.GetAllOrders();
+            foreach (Order o in orders)
+            {
+                foreach (OrderProductRecord op in o.orderProducts)
+                {
+                    if (op.articul_.Contains(product.articul_))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

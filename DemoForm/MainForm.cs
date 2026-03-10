@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DemoLib.User;
 using DemoLib.Product;
 using System.Reflection;
+using DemoLib.Order;
 
 namespace DemoForm
 {
@@ -18,6 +19,7 @@ namespace DemoForm
         private ProductService service_;
         private List<Product> products_ = new List<Product>();
         private User currentUser_ = null;
+        private OrderService orderService_;
         public MainForm(User user)
         {
             currentUser_ = user;
@@ -25,6 +27,9 @@ namespace DemoForm
 
             var repository = new ProductRepository();
             service_ = new ProductService(repository);
+
+            var orderRepository = new OrderRepository();
+            orderService_ = new OrderService(orderRepository);
 
             try
             {
@@ -238,6 +243,53 @@ namespace DemoForm
                                     "Ошибка редактирования товара",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var item = ProductsListBox.SelectedItem;
+            if (item == null) return;
+
+            var product = item as Product;
+            if (product == null) return;
+
+            DialogResult result = MessageBox.Show(
+                $"Вы уверены, что хотите удалить товар {product.articul_}?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                if (!orderService_.CheckArticul(product))
+                {
+                    try
+                    {
+                        service_.DeleteProduct(product);
+                        products_.Clear();
+                        products_ = service_.GetAllProducts();
+                        ShowProducts(products_);
+                        if (ProductsListBox.Items.Count > 0)
+                            ProductsListBox.SelectedIndex = 0;
+                        searchTextBox.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message,
+                                        "Ошибка удаления товара",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Вы не можете удалить товар, который заказан",
+                        "Ошибка удаления товара",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
