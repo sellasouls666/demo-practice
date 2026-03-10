@@ -195,6 +195,7 @@ namespace DemoForm
                     ShowProducts(products_);
                     if (ProductsListBox.Items.Count > 0)
                         ProductsListBox.SelectedIndex = 0;
+                    searchTextBox.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -204,6 +205,11 @@ namespace DemoForm
                                     MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void cardProduct_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
         }
     }
 }

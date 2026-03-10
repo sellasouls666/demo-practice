@@ -18,6 +18,25 @@ namespace DemoForm
         public ProductCard()
         {
             InitializeComponent();
+
+            this.picBox.DoubleClick += ChildControl_DoubleClick;
+            this.categoryLabel.DoubleClick += ChildControl_DoubleClick;
+            this.countLabel.DoubleClick += ChildControl_DoubleClick;
+            this.countNameLabel.DoubleClick += ChildControl_DoubleClick;
+            this.descriptionLabel.DoubleClick += ChildControl_DoubleClick;
+            this.discountLabel.DoubleClick += ChildControl_DoubleClick;
+            this.label1.DoubleClick += ChildControl_DoubleClick;
+            this.label2.DoubleClick += ChildControl_DoubleClick;
+            this.label3.DoubleClick += ChildControl_DoubleClick;
+            this.label4.DoubleClick += ChildControl_DoubleClick;
+            this.label5.DoubleClick += ChildControl_DoubleClick;
+            this.label6.DoubleClick += ChildControl_DoubleClick;
+            this.manufacturerLabel.DoubleClick += ChildControl_DoubleClick;
+            this.nameLabel.DoubleClick += ChildControl_DoubleClick;
+            this.newPriceLabel.DoubleClick += ChildControl_DoubleClick;
+            this.priceLabel.DoubleClick += ChildControl_DoubleClick;
+            this.supplierLabel.DoubleClick += ChildControl_DoubleClick;
+            this.unitLabel.DoubleClick += ChildControl_DoubleClick;
         }
 
         public void ShowProductInfo(Product product)
@@ -76,6 +95,11 @@ namespace DemoForm
                 countLabel.ForeColor = Color.FromName("ControlText");
                 countNameLabel.ForeColor = Color.FromName("ControlText");
             }
+        }
+
+        private void ChildControl_DoubleClick(object sender, EventArgs e)
+        {
+            OnDoubleClick(e);
         }
     }
 }

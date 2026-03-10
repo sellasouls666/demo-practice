@@ -36,9 +36,9 @@
             this.supplierComboBox = new System.Windows.Forms.ComboBox();
             this.sortIncButton = new System.Windows.Forms.Button();
             this.sortDecButton = new System.Windows.Forms.Button();
-            this.cardProduct = new DemoForm.ProductCard();
             this.logoPicBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
+            this.cardProduct = new DemoForm.ProductCard();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,14 +130,6 @@
             this.sortDecButton.UseVisualStyleBackColor = false;
             this.sortDecButton.Click += new System.EventHandler(this.sortDecButton_Click);
             // 
-            // cardProduct
-            // 
-            this.cardProduct.BackColor = System.Drawing.Color.Chartreuse;
-            this.cardProduct.Location = new System.Drawing.Point(118, 64);
-            this.cardProduct.Name = "cardProduct";
-            this.cardProduct.Size = new System.Drawing.Size(1000, 309);
-            this.cardProduct.TabIndex = 1;
-            // 
             // logoPicBox
             // 
             this.logoPicBox.Location = new System.Drawing.Point(1133, 22);
@@ -158,6 +150,15 @@
             this.addButton.Text = "Добавить товар";
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // cardProduct
+            // 
+            this.cardProduct.BackColor = System.Drawing.Color.Chartreuse;
+            this.cardProduct.Location = new System.Drawing.Point(118, 64);
+            this.cardProduct.Name = "cardProduct";
+            this.cardProduct.Size = new System.Drawing.Size(1000, 309);
+            this.cardProduct.TabIndex = 1;
+            this.cardProduct.DoubleClick += new System.EventHandler(this.cardProduct_DoubleClick);
             // 
             // MainForm
             // 
