@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DemoLib.Order
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private const string connStr = "Host=192.168.1.48;Port=5432;Database=shoes_store_EG;Username=st50-5;Password=505;";
 

@@ -113,9 +113,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\IOrderRepository.cs" />
     <Compile Include="Order\Order.cs" />
     <Compile Include="Order\OrderProductRecord.cs" />
     <Compile Include="Order\OrderRepository.cs" />
+    <Compile Include="Order\OrderService.cs" />
     <Compile Include="Product\IProductRepository.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductRepository.cs" />
