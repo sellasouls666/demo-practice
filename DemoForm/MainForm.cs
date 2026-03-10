@@ -209,7 +209,14 @@ namespace DemoForm
 
         private void cardProduct_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
+            var item = ProductsListBox.SelectedItem;
+            if (item == null) return;
+
+            var client = item as Product;
+            if (client == null) return;
+
+            AddOrEditForm editForm = new AddOrEditForm(service_, 1, client);
+            DialogResult result = editForm.ShowDialog();
         }
     }
 }

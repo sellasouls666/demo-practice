@@ -121,6 +121,24 @@ namespace DemoForm
                 this.Text = "Добавление товара";
                 categoryComboBox.Text = "Мужская обувь";
             }
+
+            if (type_ == 1)
+            {
+                selectedImagePath_ = newProduct_.pic_;
+                pictureBox.Load(selectedImagePath_);
+                this.Text = "Редактирование товара";
+                articulTextBox.Text = newProduct_.articul_;
+                articulTextBox.Enabled = false;
+                nameTextBox.Text = newProduct_.name_;
+                unitTextBox.Text = newProduct_.unit_;
+                priceNumeric.Value = newProduct_.price_;
+                supplierTextBox.Text = newProduct_.supplier_;
+                manufacturerTextBox.Text = newProduct_.manufacturer_;
+                categoryComboBox.Text = newProduct_.category_;
+                discountNumeric.Value = newProduct_.discount_;
+                countNumeric.Value = newProduct_.count_;
+                descriptionTextBox.Text = newProduct_.description_;
+            }
         }
 
         public Product GetNewProduct()
