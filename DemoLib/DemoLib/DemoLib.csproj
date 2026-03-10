@@ -113,6 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\Order.cs" />
+    <Compile Include="Order\OrderProductRecord.cs" />
     <Compile Include="Product\IProductRepository.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductRepository.cs" />
