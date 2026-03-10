@@ -109,5 +109,39 @@ namespace DemoLib.Product
                 throw ex;
             }
         }
+
+        public void EditProduct(Product product)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection((string)(connStr)))
+                {
+                    connection.Open();
+                    string sql = "UPDATE products SET name = @name, unit = @unit, price = @price, supplier = @supplier, " +
+                        "manufacturer = @manufacturer, category = @category, discount = @discount, count = @count, description = @description," +
+                        "pic = @pic WHERE articul = @articul";
+                    NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+
+                    command.Parameters.AddWithValue("@name", product.name_);
+                    command.Parameters.AddWithValue("@unit", product.unit_);
+                    command.Parameters.AddWithValue("@price", product.price_);
+                    command.Parameters.AddWithValue("@supplier", product.supplier_);
+                    command.Parameters.AddWithValue("@manufacturer", product.manufacturer_);
+                    command.Parameters.AddWithValue("@category", product.category_);
+                    command.Parameters.AddWithValue("@discount", product.discount_);
+                    command.Parameters.AddWithValue("@count", product.count_);
+                    command.Parameters.AddWithValue("@description", product.description_);
+                    command.Parameters.AddWithValue("@pic", product.pic_);
+                    command.Parameters.AddWithValue("@articul", product.articul_);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

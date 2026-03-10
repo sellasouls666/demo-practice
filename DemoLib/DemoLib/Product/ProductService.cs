@@ -37,5 +37,10 @@ namespace DemoLib.Product
         {
             repository_.AddProduct(product); 
         }
+
+        public void EditProduct(Product product)
+        {
+            repository_.EditProduct(product);
+        }
     }
 }
