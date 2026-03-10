@@ -217,6 +217,25 @@ namespace DemoForm
 
             AddOrEditForm editForm = new AddOrEditForm(service_, 1, client);
             DialogResult result = editForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    service_.EditProduct(editForm.GetNewProduct());
+                    products_.Clear();
+                    products_ = service_.GetAllProducts();
+                    ShowProducts(products_);
+                    searchTextBox.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Ошибка редактирования товара",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

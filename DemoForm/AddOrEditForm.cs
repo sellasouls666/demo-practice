@@ -111,6 +111,21 @@ namespace DemoForm
                 newProduct_ = (Product)addProduct;
                 DialogResult = DialogResult.OK;
             }
+
+            if (type_ == 1)
+            {
+                newProduct_.name_ = nameTextBox.Text;
+                newProduct_.unit_ = unitTextBox.Text;
+                newProduct_.price_ = priceNumeric.Value;
+                newProduct_.supplier_ = supplierTextBox.Text;
+                newProduct_.manufacturer_ = manufacturerTextBox.Text;
+                newProduct_.category_ = categoryComboBox.Text;
+                newProduct_.discount_ = (int)discountNumeric.Value;
+                newProduct_.count_ = (int)countNumeric.Value;
+                newProduct_.description_ = descriptionTextBox.Text;
+                newProduct_.pic_ = selectedImagePath_;
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void AddOrEditForm_Load(object sender, EventArgs e)
