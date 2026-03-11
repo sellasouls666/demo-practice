@@ -32,10 +32,10 @@ namespace DemoLib.Order
                             o.orderDate_ = reader.GetDateTime(1);
                             o.delieveryDate_ = reader.GetDateTime(2);
                             o.idPickup_ = reader.GetInt32(3);
-                            o.fio_ = reader.GetString(4);
-                            o.code_ = reader.GetInt32(5);
+                            o.fio_ = reader.IsDBNull(4) ? null : reader.GetString(4);
+                            o.code_ = reader.IsDBNull(5) ? 0 : reader.GetInt32(5);
                             o.status_ = reader.GetString(6);
-                            o.userLogin_ = reader.GetString(7);
+                            o.userLogin_ = reader.IsDBNull(7) ? null : reader.GetString(7);
                             orders.Add(o);
                         }
                     }

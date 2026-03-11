@@ -73,8 +73,27 @@ namespace DemoForm
 
         private void addOrderButton_Click(object sender, EventArgs e)
         {
-            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null);
+            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null, pickupService_);
             DialogResult result = addForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    orderService_.AddOrder(addForm.GetNewOrder());
+                    orders_.Clear();
+                    orders_ = orderService_.GetAllOrders();
+                    ShowOrders(orders_);
+                    if (ordersListBox.Items.Count > 0)
+                        ordersListBox.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Ошибка добавления заказа",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

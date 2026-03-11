@@ -24,5 +24,18 @@ namespace DemoLib.Pickup
         {
             return repository_.GetAllPickups();
         }
+
+        public int GetPickupId(string address)
+        {
+            List<Pickup> pickups = repository_.GetAllPickups();
+            foreach (Pickup p in pickups)
+            {
+                if (p.address_ == address)
+                {
+                    return p.id_;
+                }
+            }
+            return 0;
+        }
     }
 }

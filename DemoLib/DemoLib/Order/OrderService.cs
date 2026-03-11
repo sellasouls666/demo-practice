@@ -41,5 +41,10 @@ namespace DemoLib.Order
         {
             repository_.AddOrder(order);
         }
+
+        public int GenerateNextId()
+        {
+            return repository_.GetAllOrders().Count() + 1;
+        }
     }
 }
