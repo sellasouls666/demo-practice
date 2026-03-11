@@ -40,6 +40,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.cardProduct = new DemoForm.ProductCard();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.ordersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,11 +174,24 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // ordersButton
+            // 
+            this.ordersButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.ordersButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ordersButton.Location = new System.Drawing.Point(1133, 268);
+            this.ordersButton.Name = "ordersButton";
+            this.ordersButton.Size = new System.Drawing.Size(162, 36);
+            this.ordersButton.TabIndex = 12;
+            this.ordersButton.Text = "Заказы";
+            this.ordersButton.UseVisualStyleBackColor = false;
+            this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 386);
+            this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.logoPicBox);
@@ -213,6 +227,7 @@
         private System.Windows.Forms.PictureBox logoPicBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button ordersButton;
     }
 }
 

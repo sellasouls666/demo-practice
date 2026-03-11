@@ -293,5 +293,11 @@ namespace DemoForm
                 }
             }
         }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            var ordersForm = new OrdersForm(currentUser_);
+            ordersForm.Show();
+        }
     }
 }
