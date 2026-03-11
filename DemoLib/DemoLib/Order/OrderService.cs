@@ -31,5 +31,10 @@ namespace DemoLib.Order
             }
             return false;
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return repository_.GetAllOrders();
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DemoLib.User;
+using DemoLib.Product;
 
 namespace DemoForm
 {
@@ -21,6 +22,29 @@ namespace DemoForm
         {
             InitializeComponent();
             currentUser_ = user;
+
+            var repository = new OrderRepository();
+            orderService_ = new OrderService(repository);
+
+            try
+            {
+                orders_ = orderService_.GetAllOrders();
+                ShowOrders(orders_);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                "Ошибка загрузки товаров",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void ShowOrders(List<Order> orders)
+        {
+            ordersListBox.DataSource = null;
+            ordersListBox.DataSource = orders;
+            ordersListBox.DisplayMember = "id_";
         }
     }
 }
