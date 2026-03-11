@@ -63,6 +63,7 @@
             this.addOrderButton.TabIndex = 2;
             this.addOrderButton.Text = "Добавить заказ";
             this.addOrderButton.UseVisualStyleBackColor = false;
+            this.addOrderButton.Click += new System.EventHandler(this.addOrderButton_Click);
             // 
             // OrdersForm
             // 

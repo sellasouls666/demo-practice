@@ -150,6 +150,7 @@
             this.cancelOrderButton.TabIndex = 10;
             this.cancelOrderButton.Text = "Отмена";
             this.cancelOrderButton.UseVisualStyleBackColor = false;
+            this.cancelOrderButton.Click += new System.EventHandler(this.cancelOrderButton_Click);
             // 
             // okOrderButton
             // 
@@ -181,6 +182,7 @@
             this.Controls.Add(this.idLabel);
             this.Name = "AddOrEditOrderForm";
             this.Text = "AddOrEditOrderForm";
+            this.Load += new System.EventHandler(this.AddOrEditOrderForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

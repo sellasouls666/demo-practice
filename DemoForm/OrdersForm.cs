@@ -70,5 +70,11 @@ namespace DemoForm
 
             cardOrder.ShowOrderInfo(order, address);
         }
+
+        private void addOrderButton_Click(object sender, EventArgs e)
+        {
+            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null);
+            DialogResult result = addForm.ShowDialog();
+        }
     }
 }
