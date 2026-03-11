@@ -165,6 +165,7 @@ namespace DemoForm
                 supplierComboBox.Enabled = false;
                 sortIncButton.Enabled = false;
                 sortDecButton.Enabled = false;
+                ordersButton.Visible = false;
             }
             if (currentUser_ == null || currentUser_.role_ == "Авторизированный клиент" || currentUser_.role_ == "Менеджер")
             {

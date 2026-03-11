@@ -43,6 +43,8 @@ namespace DemoForm
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
+
+            CheckRole();
         }
 
         private void ShowOrders(List<Order> orders)
@@ -73,7 +75,7 @@ namespace DemoForm
 
         private void addOrderButton_Click(object sender, EventArgs e)
         {
-            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null, pickupService_);
+            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null, pickupService_, currentUser_);
             DialogResult result = addForm.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -93,6 +95,14 @@ namespace DemoForm
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void CheckRole()
+        {
+            if (currentUser_.role_ != "Администратор")
+            {
+                addOrderButton.Enabled = false;
             }
         }
     }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DemoLib.Order;
 using DemoLib.Pickup;
 using DemoLib.Product;
+using DemoLib.User;
 
 namespace DemoForm
 {
@@ -19,13 +20,15 @@ namespace DemoForm
         private OrderService orderService_;
         private int type_;
         private PickupService pickupService_;
-        public AddOrEditOrderForm(OrderService orderService, int type, Order order, PickupService pickupService)
+        private User currentUser_;
+        public AddOrEditOrderForm(OrderService orderService, int type, Order order, PickupService pickupService, User user)
         {
             InitializeComponent();
             orderService_ = orderService;
             type_ = type;
             newOrder_ = order;
             pickupService_ = pickupService;
+            currentUser_ = user;
         }
 
         private void cancelOrderButton_Click(object sender, EventArgs e)
@@ -56,6 +59,8 @@ namespace DemoForm
                 addOrder.idPickup_ = pickupService_.GetPickupId(addressComboBox.Text);
                 addOrder.orderDate_ = orderDateTimePicker.Value;
                 addOrder.delieveryDate_ = dateDelieveryTimePicker.Value;
+                addOrder.fio_ = currentUser_.fio_;
+                addOrder.userLogin_ = currentUser_.login_;
                 newOrder_ = (Order)addOrder;
                 DialogResult = DialogResult.OK;
             }
