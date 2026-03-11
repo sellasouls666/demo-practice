@@ -1,0 +1,43 @@
+﻿using DemoLib.Order;
+using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DemoLib.Pickup
+{
+    public class PickupRepository : IPickupRepository
+    {
+        private const string connStr = "Host=192.168.1.48;Port=5432;Database=shoes_store_EG;Username=st50-5;Password=505;";
+
+        public string GetPickupAddress(int idPickup)
+        {
+            string pickupAddress;
+            try
+            {
+                using (var connection = new NpgsqlConnection(connStr))
+                {
+                    connection.Open();
+
+                    const string sql = "SELECT address FROM pickups WHERE id = @id";
+                    using (var command = new NpgsqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", idPickup);
+                        using (var reader = command.ExecuteReader())
+                        {
+                            pickupAddress = reader.GetString(0);
+                        }
+                    }
+                }
+
+                return pickupAddress;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ошибка при чтении адреса", ex);
+            }
+        }
+    }
+}
