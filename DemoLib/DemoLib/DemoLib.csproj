@@ -119,6 +119,7 @@
     <Compile Include="Order\OrderRepository.cs" />
     <Compile Include="Order\OrderService.cs" />
     <Compile Include="Pickup\IPickupRepository.cs" />
+    <Compile Include="Pickup\Pickup.cs" />
     <Compile Include="Pickup\PickupRepository.cs" />
     <Compile Include="Pickup\PickupService.cs" />
     <Compile Include="Product\IProductRepository.cs" />
