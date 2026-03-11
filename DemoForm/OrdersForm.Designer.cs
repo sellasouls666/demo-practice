@@ -30,6 +30,7 @@
         {
             this.ordersListBox = new System.Windows.Forms.ListBox();
             this.cardOrder = new DemoForm.OrderCard();
+            this.addOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ordersListBox
@@ -52,11 +53,23 @@
             this.cardOrder.Size = new System.Drawing.Size(488, 160);
             this.cardOrder.TabIndex = 1;
             // 
+            // addOrderButton
+            // 
+            this.addOrderButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.addOrderButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addOrderButton.Location = new System.Drawing.Point(595, 12);
+            this.addOrderButton.Name = "addOrderButton";
+            this.addOrderButton.Size = new System.Drawing.Size(177, 35);
+            this.addOrderButton.TabIndex = 2;
+            this.addOrderButton.Text = "Добавить заказ";
+            this.addOrderButton.UseVisualStyleBackColor = false;
+            // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 191);
+            this.Controls.Add(this.addOrderButton);
             this.Controls.Add(this.cardOrder);
             this.Controls.Add(this.ordersListBox);
             this.Name = "OrdersForm";
@@ -69,5 +82,6 @@
 
         private System.Windows.Forms.ListBox ordersListBox;
         private OrderCard cardOrder;
+        private System.Windows.Forms.Button addOrderButton;
     }
 }

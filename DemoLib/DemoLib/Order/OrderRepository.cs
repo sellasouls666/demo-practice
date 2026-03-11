@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using DemoLib.Product;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +85,35 @@ namespace DemoLib.Order
             catch (Exception ex)
             {
                 throw new Exception("Ошибка при чтении товаров в заказе", ex);
+            }
+        }
+
+        public void AddOrder(Order order)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
+                {
+
+                    connection.Open();
+                    string addOrderSql =
+                                "INSERT INTO orders (id, status, \"idPickup\", \"orderDate\", \"delieveryDate\")"
+                                + " VALUES (@id, @status, @idPickup, @orderDate, @delieveryDate)";
+                    NpgsqlCommand command = new NpgsqlCommand(addOrderSql, connection);
+
+                    command.Parameters.AddWithValue("@id", order.id_);
+                    command.Parameters.AddWithValue("@status", order.status_);
+                    command.Parameters.AddWithValue("@idPickup", order.idPickup_);
+                    command.Parameters.AddWithValue("@orderDate", order.orderDate_);
+                    command.Parameters.AddWithValue("@delieveryDate", order.delieveryDate_);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
