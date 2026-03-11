@@ -9,5 +9,6 @@ namespace DemoLib.Pickup
     public interface IPickupRepository
     {
         string GetPickupAddress(int idPickup);
+        List<Pickup> GetAllPickups();
     }
 }

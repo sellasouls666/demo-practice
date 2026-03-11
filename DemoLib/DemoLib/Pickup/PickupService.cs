@@ -19,5 +19,10 @@ namespace DemoLib.Pickup
         {
             return repository_.GetPickupAddress(idPickup);
         }
+
+        public List<Pickup> GetAllPickups()
+        {
+            return repository_.GetAllPickups();
+        }
     }
 }

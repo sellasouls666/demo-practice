@@ -27,9 +27,41 @@ namespace DemoLib.Pickup
                         {
                             return reader.GetString(0);
                         }
-                        return null; // или throw new Exception("Адрес не найден");
+                        return null;
                     }
                 }
+            }
+        }
+
+        public List<Pickup> GetAllPickups()
+        {
+            var pickups = new List<Pickup>();
+
+            try
+            {
+                using (var connection = new NpgsqlConnection(connStr))
+                {
+                    connection.Open();
+
+                    const string sql = "SELECT address, id FROM pickups";
+                    using (var command = new NpgsqlCommand(sql, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var p = new Pickup();
+                            p.address_ = reader.GetString(0);
+                            p.id_ = reader.GetInt32(1);
+                            pickups.Add(p);
+                        }
+                    }
+                }
+
+                return pickups;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ошибка при чтении пунктов выдачи", ex);
             }
         }
     }
