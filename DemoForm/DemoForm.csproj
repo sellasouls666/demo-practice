@@ -52,6 +52,12 @@
     <Compile Include="AddOrEditForm.Designer.cs">
       <DependentUpon>AddOrEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOrEditOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrEditOrderForm.Designer.cs">
+      <DependentUpon>AddOrEditOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthorizeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddOrEditForm.resx">
       <DependentUpon>AddOrEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrEditOrderForm.resx">
+      <DependentUpon>AddOrEditOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorizeForm.resx">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
