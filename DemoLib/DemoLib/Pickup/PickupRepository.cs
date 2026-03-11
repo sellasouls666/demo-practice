@@ -14,29 +14,22 @@ namespace DemoLib.Pickup
 
         public string GetPickupAddress(int idPickup)
         {
-            string pickupAddress;
-            try
+            using (var connection = new NpgsqlConnection(connStr))
             {
-                using (var connection = new NpgsqlConnection(connStr))
+                connection.Open();
+                const string sql = "SELECT address FROM pickups WHERE id = @id";
+                using (var command = new NpgsqlCommand(sql, connection))
                 {
-                    connection.Open();
-
-                    const string sql = "SELECT address FROM pickups WHERE id = @id";
-                    using (var command = new NpgsqlCommand(sql, connection))
+                    command.Parameters.AddWithValue("@id", idPickup);
+                    using (var reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@id", idPickup);
-                        using (var reader = command.ExecuteReader())
+                        if (reader.Read())
                         {
-                            pickupAddress = reader.GetString(0);
+                            return reader.GetString(0);
                         }
+                        return null; // или throw new Exception("Адрес не найден");
                     }
                 }
-
-                return pickupAddress;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ошибка при чтении адреса", ex);
             }
         }
     }

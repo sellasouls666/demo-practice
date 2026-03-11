@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DemoLib.User;
 using DemoLib.Product;
+using DemoLib.Pickup;
 
 namespace DemoForm
 {
@@ -18,6 +19,7 @@ namespace DemoForm
         private OrderService orderService_;
         private List<Order> orders_ = new List<Order>();
         private User currentUser_ = null;
+        private PickupService pickupService_;
         public OrdersForm(User user)
         {
             InitializeComponent();
@@ -25,6 +27,9 @@ namespace DemoForm
 
             var repository = new OrderRepository();
             orderService_ = new OrderService(repository);
+
+            var pickupRepository = new PickupRepository();
+            pickupService_ = new PickupService(pickupRepository);
 
             try
             {
@@ -45,6 +50,25 @@ namespace DemoForm
             ordersListBox.DataSource = null;
             ordersListBox.DataSource = orders;
             ordersListBox.DisplayMember = "id_";
+        }
+
+        private void ordersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = ordersListBox.SelectedItem;
+            if (item == null)
+            {
+                return;
+            }
+
+            var order = item as Order;
+            if (order == null)
+            {
+                return;
+            }
+
+            string address = pickupService_.GetPickupAddress(order.idPickup_);
+
+            cardOrder.ShowOrderInfo(order, address);
         }
     }
 }
