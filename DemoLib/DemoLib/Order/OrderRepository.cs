@@ -143,5 +143,27 @@ namespace DemoLib.Order
                 throw ex;
             }
         }
+
+        public void DeleteOrder(Order order)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection((string)(connStr)))
+                {
+                    connection.Open();
+                    string sql = "DELETE FROM orders WHERE id = @id";
+                    NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+
+                    command.Parameters.AddWithValue("@id", order.id_);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

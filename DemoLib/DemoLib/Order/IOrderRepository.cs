@@ -11,5 +11,6 @@ namespace DemoLib.Order
         List<Order> GetAllOrders();
         void AddOrder(Order order);
         void EditOrder(Order order);
+        void DeleteOrder(Order order);
     }
 }

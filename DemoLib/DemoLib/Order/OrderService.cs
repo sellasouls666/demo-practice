@@ -51,5 +51,10 @@ namespace DemoLib.Order
         {
             repository_.EditOrder(order);
         }
+
+        public void DeleteOrder(Order order)
+        {
+            repository_.DeleteOrder(order);
+        }
     }
 }
