@@ -105,5 +105,38 @@ namespace DemoForm
                 addOrderButton.Enabled = false;
             }
         }
+
+        private void cardOrder_DoubleClick(object sender, EventArgs e)
+        {
+            if (currentUser_.role_ == "Администратор")
+            {
+                var item = ordersListBox.SelectedItem;
+                if (item == null) return;
+
+                var order = item as Order;
+                if (order == null) return;
+
+                AddOrEditOrderForm editForm = new AddOrEditOrderForm(orderService_, 1, order, pickupService_);
+                DialogResult result = editForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        orderService_.EditOrder(editForm.GetNewOrder());
+                        orders_.Clear();
+                        orders_ = orderService_.GetAllOrders();
+                        ShowOrders(orders_);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message,
+                                        "Ошибка редактирования заказа",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

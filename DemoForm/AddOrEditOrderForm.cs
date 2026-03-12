@@ -45,6 +45,15 @@ namespace DemoForm
                 idTextBox.Value = orderService_.GenerateNextId();
                 statusComboBox.Text = "Новый";
             }
+            if (type_ == 1)
+            {
+                this.Text = "Редактирование заказа";
+                idTextBox.Value = newOrder_.id_;
+                statusComboBox.Text = newOrder_.status_;
+                addressComboBox.Text = pickupService_.GetPickupAddress(newOrder_.idPickup_);
+                orderDateTimePicker.Value = newOrder_.orderDate_;
+                dateDelieveryTimePicker.Value = newOrder_.delieveryDate_;
+            }
         }
 
         private void okOrderButton_Click(object sender, EventArgs e)
@@ -58,6 +67,16 @@ namespace DemoForm
                 addOrder.orderDate_ = orderDateTimePicker.Value;
                 addOrder.delieveryDate_ = dateDelieveryTimePicker.Value;
                 newOrder_ = (Order)addOrder;
+                DialogResult = DialogResult.OK;
+            }
+
+            if (type_ == 1)
+            {
+                newOrder_.id_ = (int)idTextBox.Value;
+                newOrder_.status_ = statusComboBox.Text;
+                newOrder_.idPickup_ = pickupService_.GetPickupId(addressComboBox.Text);
+                newOrder_.orderDate_ = orderDateTimePicker.Value;
+                newOrder_.delieveryDate_ = dateDelieveryTimePicker.Value;
                 DialogResult = DialogResult.OK;
             }
         }

@@ -52,6 +52,7 @@
             this.cardOrder.Name = "cardOrder";
             this.cardOrder.Size = new System.Drawing.Size(488, 160);
             this.cardOrder.TabIndex = 1;
+            this.cardOrder.DoubleClick += new System.EventHandler(this.cardOrder_DoubleClick);
             // 
             // addOrderButton
             // 

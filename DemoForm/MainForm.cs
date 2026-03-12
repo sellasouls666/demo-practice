@@ -222,10 +222,10 @@ namespace DemoForm
             var item = ProductsListBox.SelectedItem;
             if (item == null) return;
 
-            var client = item as Product;
-            if (client == null) return;
+            var product = item as Product;
+            if (product == null) return;
 
-            AddOrEditForm editForm = new AddOrEditForm(service_, 1, client);
+            AddOrEditForm editForm = new AddOrEditForm(service_, 1, product);
             DialogResult result = editForm.ShowDialog();
 
             if (result == DialogResult.OK)

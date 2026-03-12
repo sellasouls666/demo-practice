@@ -124,7 +124,7 @@ namespace DemoLib.Order
                 using (NpgsqlConnection connection = new NpgsqlConnection((string)(connStr)))
                 {
                     connection.Open();
-                    string sql = "UPDATE products SET status = @status, \"idPickup\" = @idPickup, \"orderDate\" = @orderDate," +
+                    string sql = "UPDATE orders SET status = @status, \"idPickup\" = @idPickup, \"orderDate\" = @orderDate," +
                         " \"delieveryDate\" = @delieveryDate WHERE id = @id";
                     NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
