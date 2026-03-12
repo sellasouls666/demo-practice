@@ -97,8 +97,8 @@ namespace DemoLib.Order
 
                     connection.Open();
                     string addOrderSql =
-                                "INSERT INTO orders (id, status, \"idPickup\", \"orderDate\", \"delieveryDate\", fio, \"userLogin\")"
-                                + " VALUES (@id, @status, @idPickup, @orderDate, @delieveryDate, @fio, @userLogin)";
+                                "INSERT INTO orders (id, status, \"idPickup\", \"orderDate\", \"delieveryDate\")"
+                                + " VALUES (@id, @status, @idPickup, @orderDate, @delieveryDate)";
                     NpgsqlCommand command = new NpgsqlCommand(addOrderSql, connection);
 
                     command.Parameters.AddWithValue("@id", order.id_);
@@ -106,8 +106,6 @@ namespace DemoLib.Order
                     command.Parameters.AddWithValue("@idPickup", order.idPickup_);
                     command.Parameters.AddWithValue("@orderDate", order.orderDate_);
                     command.Parameters.AddWithValue("@delieveryDate", order.delieveryDate_);
-                    command.Parameters.AddWithValue("@fio", order.fio_);
-                    command.Parameters.AddWithValue("@userLogin", order.userLogin_);
 
                     command.ExecuteNonQuery();
                 }

@@ -75,7 +75,7 @@ namespace DemoForm
 
         private void addOrderButton_Click(object sender, EventArgs e)
         {
-            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null, pickupService_, currentUser_);
+            AddOrEditOrderForm addForm = new AddOrEditOrderForm(orderService_, 0, null, pickupService_);
             DialogResult result = addForm.ShowDialog();
             if (result == DialogResult.OK)
             {
