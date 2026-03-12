@@ -44,7 +44,17 @@ namespace DemoLib.Order
 
         public int GenerateNextId()
         {
-            return repository_.GetAllOrders().Count() + 1;
+            List<Order> orders = repository_.GetAllOrders();
+            int id = 0;
+            foreach (Order o in orders)
+            {
+                if (o.id_ > id)
+                {
+                    id = o.id_;
+                }
+            }
+            return id + 1;
+            //return repository_.GetAllOrders().Count() + 1;
         }
 
         public void EditOrder(Order order)
