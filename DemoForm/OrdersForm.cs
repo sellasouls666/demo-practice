@@ -103,6 +103,7 @@ namespace DemoForm
             if (currentUser_.role_ != "Администратор")
             {
                 addOrderButton.Enabled = false;
+                deleteOrderButton.Enabled = false;
             }
         }
 
@@ -135,6 +136,42 @@ namespace DemoForm
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
                     }
+                }
+            }
+        }
+
+        private void deleteOrderButton_Click(object sender, EventArgs e)
+        {
+            var item = ordersListBox.SelectedItem;
+            if (item == null) return;
+
+            var order = item as Order;
+            if (order == null) return;
+
+            DialogResult result = MessageBox.Show(
+                $"Вы уверены, что хотите удалить заказ {order.id_}?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    orderService_.DeleteOrder(order);
+                    orders_.Clear();
+                    orders_ = orderService_.GetAllOrders();
+                    ShowOrders(orders_);
+                    if (ordersListBox.Items.Count > 0)
+                        ordersListBox.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Ошибка удаления заказа",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }

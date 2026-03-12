@@ -31,6 +31,7 @@
             this.ordersListBox = new System.Windows.Forms.ListBox();
             this.cardOrder = new DemoForm.OrderCard();
             this.addOrderButton = new System.Windows.Forms.Button();
+            this.deleteOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ordersListBox
@@ -66,11 +67,24 @@
             this.addOrderButton.UseVisualStyleBackColor = false;
             this.addOrderButton.Click += new System.EventHandler(this.addOrderButton_Click);
             // 
+            // deleteOrderButton
+            // 
+            this.deleteOrderButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.deleteOrderButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteOrderButton.Location = new System.Drawing.Point(595, 66);
+            this.deleteOrderButton.Name = "deleteOrderButton";
+            this.deleteOrderButton.Size = new System.Drawing.Size(177, 35);
+            this.deleteOrderButton.TabIndex = 3;
+            this.deleteOrderButton.Text = "Удалить заказ";
+            this.deleteOrderButton.UseVisualStyleBackColor = false;
+            this.deleteOrderButton.Click += new System.EventHandler(this.deleteOrderButton_Click);
+            // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 191);
+            this.Controls.Add(this.deleteOrderButton);
             this.Controls.Add(this.addOrderButton);
             this.Controls.Add(this.cardOrder);
             this.Controls.Add(this.ordersListBox);
@@ -85,5 +99,6 @@
         private System.Windows.Forms.ListBox ordersListBox;
         private OrderCard cardOrder;
         private System.Windows.Forms.Button addOrderButton;
+        private System.Windows.Forms.Button deleteOrderButton;
     }
 }
