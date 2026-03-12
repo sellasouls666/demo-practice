@@ -46,5 +46,10 @@ namespace DemoLib.Order
         {
             return repository_.GetAllOrders().Count() + 1;
         }
+
+        public void EditOrder(Order order)
+        {
+            repository_.EditOrder(order);
+        }
     }
 }
