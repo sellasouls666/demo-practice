@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoLib", "DemoLib\DemoLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoForm", "..\DemoForm\DemoForm.csproj", "{C56366BE-FE14-4DE3-A6E1-07CB102A53DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoTest", "DemoTest\DemoTest.csproj", "{3FE7B9C6-8D54-4A26-B677-0A89D5BFBE8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C56366BE-FE14-4DE3-A6E1-07CB102A53DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C56366BE-FE14-4DE3-A6E1-07CB102A53DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C56366BE-FE14-4DE3-A6E1-07CB102A53DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE7B9C6-8D54-4A26-B677-0A89D5BFBE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE7B9C6-8D54-4A26-B677-0A89D5BFBE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE7B9C6-8D54-4A26-B677-0A89D5BFBE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE7B9C6-8D54-4A26-B677-0A89D5BFBE8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
